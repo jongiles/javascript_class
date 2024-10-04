@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Tests</h2>
+
+<div id=here> </div>
+<p id=next> this is a paragraph one </p>
+
+<h2>HTML Forms</h2>
+
+<form action="/action_page.php">
+  <label for="fname">Very First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <textarea name="textarea" cols="cols" rows="rows">
+  	5
+  </textarea>
+  <input type="range" name="fname" value="5" min="1" max="10"><br>
+  <input type="submit" value="Submit Right Now">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>
+
+<script>
+  document.getElementById("here").innerHTML = "Right here we are here"
+ 
+  var content = "Now we are here."
+  var next_content = "X"
+  
+  document.getElementById("here").innerHTML = content
+  document.getElementById("next").innerHTML = next_content
+
+  console.log("ok buddy.")
+
+</script>
