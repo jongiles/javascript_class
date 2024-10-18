@@ -21,7 +21,7 @@ function getItAll() {
 
 function setItAll() {
     var p_elements = document.getElementsByTagName('p');
-    for (index in in p_elements) {
+    for (index in p_elements) {
         p_elements[index].innerText = "ha ha ha";
     }
 }
