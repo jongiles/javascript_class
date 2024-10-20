@@ -1,0 +1,35 @@
+<html>
+
+    <head>
+        <title>Here is a group of books</title>
+    </head>
+
+    <body onload="setInterval('go_ahead()', 2000);">
+        
+        <p>Do you want to buy any of these?</p>
+        <br>
+        <img id="books" src="slides/1.jpg">
+
+        <script>
+        
+            var pix_num = 1;
+            var total = 5;
+            
+            function go_ahead() {
+                
+                pix_num = pix_num + 1;
+                
+                if (pix_num > total) {
+                    pix_num = 1;                    
+                }
+                
+                // alert(pix_num);
+                document.getElementById("books").src = "slides/" + pix_num +".jpg";
+
+
+                
+            }
+
+        </script>
+    </body>
+</html>

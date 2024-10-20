@@ -1,9 +1,13 @@
 <html id="everything" >
     <p>This is the first paragraph.</p>
     <br>
+    This is the first paragraph text.
     <p>This is the second paragraph.</p>
     <br>
+    This is the second paragraph text.
     <p>This is the third paragraph.</p>
+    <br>
+    This is the third paragraph text.
     <br>
     <a href="https://www.google.com">go to google</a>
     <br><br>
@@ -32,16 +36,24 @@
     
     <script>
 
+        var node;
+ 
         function getItAll() {
-            let html = document.getElementById("everything").innerHTML;
+            var html = document.getElementById("everything").innerHTML;
             alert(html);    
         }
 
         function getItWithLoop() {
-            let html = document.getElementsByTagName("*");
-            for element in html {
-                alert(html[element])
-            }    
+ 
+            var html = document.getElementsByTagName("*");
+ 
+            for (node in html) {
+                if (html[node].nodeType == 1) {
+                    alert(html[node].tagName + ":" + html[node].innerHTML);
+                } else {
+                    alert("I found something else " + html[node]);
+                }
+            }
         }
 
         function setItAll() {
