@@ -27,5 +27,31 @@
 
     <button onclick="getItAll()">display</button>         
     <button onclick="setItAll()">change</button>
-    <script src='dom.js'></script>  
+    
+    <button onclick="getItWithLoop()">display as a loop</button>         
+    
+    <script>
+
+        function getItAll() {
+            let html = document.getElementById("everything").innerHTML;
+            alert(html);    
+        }
+
+        function getItWithLoop() {
+            let html = document.getElementsByTagName("*");
+            for element in html {
+                alert(html[element])
+            }    
+        }
+
+        function setItAll() {
+            var p_elements = document.getElementsByTagName('p');
+            for (index in p_elements) {
+                p_elements[index].innerText = "ha ha ha";
+            }
+        }
+        
+    </script>
+
 </html>
+

@@ -1,0 +1,20 @@
+<HTML>
+<BODY BGCOLOR=lightblue>
+
+<SCRIPT>
+
+//var name        = prompt("Enter the name of a JavaScript Object", "document");
+//var obj         = eval(name); 
+
+var obj = document;
+
+document.write("<h1> The properties of the --" + obj + ": </h1>");
+
+for (property in obj) { 
+    document.write("<b>" + property + "</b>: " + obj[property] + "<br>\n");
+}
+
+</SCRIPT>
+
+</BODY>
+</HTML>
