@@ -4,17 +4,30 @@
         <title>Here is a group of books</title>
     </head>
 
-    <body onload="setInterval('go_ahead()', 2000);">
+    <body>
         
         <p>Do you want to buy any of these?</p>
         <br>
+        <div style='position: absolute; left:40px'>
+        <br>
         <img id="books" src="slides/1.jpg">
 
-        <script>
+        <button onclick="go_ahead()">next image</button>         
+        <button onclick="autoRun = setInterval(go_ahead, 200)">auto run</button>
+        <button onclick="clearInterval(autoRun)">stop</button>
+    
+    <script>
         
             var pix_num = 1;
             var total = 5;
+            var col_images = []
             
+            for (var index=1; index <= total; index++) {
+                col_images[index] = document.createElement("img");
+                col_images[index].src = "slides/" + index + ".jpg"; 
+            }
+    
+    
             function go_ahead() {
                 
                 pix_num = pix_num + 1;
@@ -23,10 +36,7 @@
                     pix_num = 1;                    
                 }
                 
-                // alert(pix_num);
-                document.getElementById("books").src = "slides/" + pix_num +".jpg";
-
-
+                document.getElementById("books").src = col_images[pix_num].src;
                 
             }
 
