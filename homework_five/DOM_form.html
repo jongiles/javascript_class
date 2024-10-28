@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I need information.</title>
+</head>
+<body>
+    <form name="getinfo" id="f1" method="POST" action="https://workshop.sps.nyu.edu/~sultans/util/form/formProc.cgi"
+        onsubmit="return validate()">
+        <table>
+            <tr>
+            <td><b>What is your favorite color?<td><input type="text" name="color" id="t1">
+            <tr>
+            <td><b>What is your country of origin?<td><input type="text" name="country" id="t2">
+            <tr>
+            <td><b>Which gender identity is closest to your own?
+            <td>
+            Male<input type="radio" name="sex" id="r1" value="male">
+            Female<input type="radio" name="sex" id="r2" value="female">
+            Neither<input type="radio" name="sex" id="r3" value="neither">
+            <tr>
+            <td><b>What types of music do you like?
+            <td>
+            Rock<input type="checkbox" name="music" id="c1" value="rock">
+            Jazz<input type="checkbox" name="music" id="c2" value="jazz">
+            Classical<input type="checkbox" name="music" id="c3" value="classical">
+            Rap<input type="checkbox" name="music" id="c4" value="rap">
+            Hip Hop<input type="checkbox" name="music" id="c5" value="hipHop">
+            Electronic<input type="checkbox" name="music" id="c6" value="electronic">
+            <tr>
+            <td><b>What are some of your favorite subjects?
+            <td>
+            <select name="subjects" id="sl1" multiple size="6">
+                <option value="m">Math</option>
+                <option value="cs">Computer Science</option>
+                <option value="h">History</option>
+                <option value="l">Literature</option>
+                <option value="s">Science</option>
+                <option value="mu">Music</option>
+                <option value="a">Art</option>
+            </select>
+            <tr>
+            <td><b>Of all the things in your kitchen, what is your favorite?
+            <td><select name="kitchen" id="sl2">
+                <option value="none">---Do Something---</option>
+                <option value="s">Spatula</option>
+                <option value="p">Frying Pan</option>
+                <option value="j">Juicer</option>
+                <option value="k">Carving Knife</option>
+                <option value="t">Timer</option>
+                <option value="b">Mixing Bowl</option>
+                <option value="p">Pealer</option>
+            </select>        
+            <tr>
+            <td><b>Now give me your name and address:
+            <td><textarea name="name_address" id="ta1" rows="6" cols="50">
+            </textarea>
+            <td>
+            <tr>
+            <td><input type="submit" value="Give me your information">
+            <td><input type="reset" value="Clear the form">
+            <tr>
+        </table>
+    </form>
+
+    <script>
+        function validate()
+        {
+            var mistakes = ""
+
+            if (document.getElementById("t1").value == "")
+            {
+                mistakes += "\nFavorite Color"
+            }
+            if (document.getinfo.country.value == "")
+            {
+                mistakes += "\nCountry"
+            }
+            if (document.getElementById("r1").checked == false &&
+                document.getElementById("r2").checked == false &&
+                document.getElementById("r3").checked == false )
+            {
+                mistakes += "\nSex"
+            }
+            if (document.getElementById("c1").checked == false &&
+                document.getElementById("c2").checked == false &&
+                document.getElementById("c3").checked == false &&
+                document.getElementById("c4").checked == false &&
+                document.getElementById("c5").checked == false &&
+                document.getElementById("c6").checked == false )
+            {
+                mistakes += "\nFavorite Music"
+            }
+            var subjectsOptions = document.getElementById("sl1").selectedOptions
+            if (subjectsOptions.length == 0)
+            {
+                mistakes += "\nSubjects"
+            }  
+            if (document.getElementById("sl2").value=="none")
+            {
+                mistakes += "\nThings in the Kitchen"
+            }
+            if(document.getElementById("ta1").value=="")
+            {
+                mistakes += "\nAddress"
+            }
+
+            if (mistakes != "")
+            {
+                alert("You are missing the following fields:" + mistakes.toString());
+                return(false)
+            } else {
+                return(true)
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- Write JavaScript code to validate the fields
+Validate that the client has entered (or selected) value(s) for each of the entry fields
+If value is not entered/selected in any particular field, alert error, and do not submit the form
+If all fields are entered/selected, submit the form to the server using script "formProc.cgi"
+(See session Notes for the URL of "formProc.cgi" script)
+"formProc.cgi" should respond with all the form names and values that you entered in the form
+If you know how to create a server side form processing script/pgm, 
+I recommend that you do to process your own form  -->
